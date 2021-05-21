@@ -1,24 +1,4 @@
-# Set up a Highly Available Kubernetes Cluster using kubeadm
-Follow this documentation to set up a highly available Kubernetes cluster using __Ubuntu 20.04 LTS__.
-
-This documentation guides you in setting up a cluster with 3 master nodes, one worker node and a load balancer node using HAProxy.
-
-## Vagrant Environment
-|Role|FQDN|IP|OS|RAM|CPU|
-|----|----|----|----|----|----|
-|Load Balancer|loadbalancer.example.com|172.16.16.100|Ubuntu 20.04|1G|1|
-|Master|kmaster1.example.com|172.16.16.101|Ubuntu 20.04|2G|2|
-|Master|kmaster2.example.com|172.16.16.102|Ubuntu 20.04|2G|2|
-|Master|kmaster2.example.com|172.16.16.103|Ubuntu 20.04|2G|2|
-|Worker|kworker1.example.com|172.16.16.201|Ubuntu 20.04|1G|1|
-
-
-## Pre-requisites
-If you want to try this in a virtualized environment on your workstation
-* Virtualbox installed
-* Vagrant installed
-* Host machine has atleast 8 cores
-* Host machine has atleast 8G memory
+This documentation guides you in setting up a cluster with 3 master nodes, one worker node and a load balancer node using HAProxy
 
 ## Bring up all the virtual machines
 ```
@@ -82,12 +62,10 @@ sudo sysctl --system
 ```
 ##### Install docker engine
 ```
-{
   sudo apt install -y sudo apt-transport-https ca-certificates curl gnupg-agent software-properties-common
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
- sudo  apt update && sudo apt install -y docker-ce=5:19.03.10~3-0~ubuntu-focal containerd.io
-}
+  sudo  apt update && sudo apt install -y docker-ce=5:19.03.10~3-0~ubuntu-focal containerd.io
 ```
 ### Kubernetes Setup
 ##### Add Apt repository
@@ -112,7 +90,7 @@ Copy the commands to join other master nodes and worker nodes.
 kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectcalico.org/v3.15/manifests/calico.yaml
 ```
 
-## Join other nodes to the cluster (kmaster2,kmaster3 & kworker1)
+## Join other nodes to the cluster 
 > Use the respective kubeadm join commands you copied from the output of kubeadm init command on the first master.
 
 > IMPORTANT: You also need to pass --apiserver-advertise-address to the join command when you join the other master node.
