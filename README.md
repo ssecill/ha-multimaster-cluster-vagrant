@@ -116,17 +116,3 @@ kubectl --kubeconfig=/etc/kubernetes/admin.conf create -f https://docs.projectca
 > Use the respective kubeadm join commands you copied from the output of kubeadm init command on the first master.
 
 > IMPORTANT: You also need to pass --apiserver-advertise-address to the join command when you join the other master node.
-
-## Downloading kube config to your local machine
-On your host machine
-```
-mkdir ~/.kube
-scp root@172.16.16.101:/etc/kubernetes/admin.conf ~/.kube/config
-```
-
-## Verifying the cluster
-```
-kubectl cluster-info
-kubectl get nodes
-kubectl get cs
-```
