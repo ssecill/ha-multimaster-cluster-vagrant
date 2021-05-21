@@ -4,10 +4,6 @@
 ENV['VAGRANT_NO_PARALLEL'] = 'yes'
 
 Vagrant.configure(2) do |config|
-
-  #yconfig.vm.provision "shell", path: "bootstrap.sh"
-
-  # Load Balancer Node
   config.vm.define "loadbalancer" do |lb|
     lb.vm.box = "bento/ubuntu-20.04"
     lb.vm.hostname = "loadbalancer.example.com"
@@ -21,7 +17,6 @@ Vagrant.configure(2) do |config|
 
   MasterCount = 3
 
-  # Kubernetes Master Nodes
   (1..MasterCount).each do |i|
     config.vm.define "kmaster#{i}" do |masternode|
       masternode.vm.box = "bento/ubuntu-20.04"
@@ -37,7 +32,6 @@ Vagrant.configure(2) do |config|
 
   NodeCount = 1
 
-  # Kubernetes Worker Nodes
   (1..NodeCount).each do |i|
     config.vm.define "kworker#{i}" do |workernode|
       workernode.vm.box = "bento/ubuntu-20.04"
