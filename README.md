@@ -9,7 +9,7 @@ This documentation guides you in setting up a cluster with two master nodes, one
 |Load Balancer|loadbalancer.example.com|172.16.16.100|Ubuntu 20.04|1G|1|
 |Master|kmaster1.example.com|172.16.16.101|Ubuntu 20.04|2G|2|
 |Master|kmaster2.example.com|172.16.16.102|Ubuntu 20.04|2G|2|
-|Master|kmaster2.example.com|172.16.16.103|Ubuntu 20.04|2G|2|
+|Master|kmaster3.example.com|172.16.16.103|Ubuntu 20.04|2G|2|
 |Worker|kworker1.example.com|172.16.16.201|Ubuntu 20.04|1G|1|
 
 > * Password for the **root** account on all these virtual machines is **kubeadmin**
