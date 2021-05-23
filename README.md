@@ -123,7 +123,7 @@ kubectl get nodes
 kubectl get cs
 ```
 
-Reference : https://www.youtube.com/watch?v=c1SCdv2hYDc & https://github.com/justmeandopensource/kubernetes
-
 ![](lens.PNG)
 ![](vagrantkubectl.PNG)
+
+Reference : https://www.youtube.com/watch?v=c1SCdv2hYDc & https://github.com/justmeandopensource/kubernetes
